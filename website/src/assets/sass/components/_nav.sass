@@ -1,7 +1,11 @@
 .nav-bar
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
     height: 80px
     color: $white
-    background: #3853d8
+    background: $primary_color
 
     .page-wrapper
         display: flex
@@ -33,16 +37,32 @@
                 align-items: center
 
                 .bag, .search
-                    font-size: 25px
+                    font-size: 27px
                     padding-left: 35px
+
+                    &:before
+                        cursor: pointer
 
                 .bag
                     position: relative
 
-                    span
-                        font-family: $primary_font
+                    .items-number
                         position: absolute
+                        right: 0
+                        bottom: -8px
+                        width: 17px
+                        height: 17px
+                        border-radius: 50%
+                        font-family: $primary_font
                         font-size: 10px
+                        background-color: $white
+                        color: $primary_color
+
+                        span
+                            position: absolute
+                            left: 53%
+                            top: 53%
+                            transform: translate3d(-50%, -50%, 0)
 
                 .login
                     display: flex
