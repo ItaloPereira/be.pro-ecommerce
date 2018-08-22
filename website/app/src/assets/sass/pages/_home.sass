@@ -1,0 +1,126 @@
+.home
+    .home-header
+        background-color: $primary_color
+
+        .swiper-container
+            height: 640px
+
+            .swiper-slide
+                .slide-text-back
+                    position: absolute
+                    top: 140px
+                    right: 0
+                    left: 0
+                    font-family: $secondary_font
+                    font-size: 150px
+                    font-weight: 400
+                    text-align: center
+                    color: $secondary_color
+                    user-select: none
+
+                .slide-img-background
+                    position: relative
+                    width: 447px
+                    height: 650px
+                    margin: 0 auto
+                    background-size: contain
+                    background-repeat: no-repeat
+                    background-position: center
+                    z-index: 1
+
+                    .slide-title-box
+                        position: absolute
+                        top: 278px
+                        right: 0
+                        left: 0
+                        margin: 0 auto
+
+                        h2
+                            font-family: $secondary_font
+                            font-size: 72px
+                            font-weight: 400
+                            color: $white
+                            text-align: center
+                            user-select: none
+
+                        button
+                            width: 200px
+                            height: 50px
+                            display: block
+                            margin: 0 auto
+                            border: none
+                            border-radius: 50px
+                            background-color: $primary_color
+                            color: $white
+                            font-size: 18px
+                            font-weight: 300
+                            letter-spacing: 5px
+                            margin-top: 26px
+                            cursor: pointer
+                            outline: none
+
+            .swiper-navigation
+                position: absolute
+                top: 0
+                right: 0
+                left: 0
+                width: 1170px
+                margin: 0 auto
+                height: 100%
+
+                .swiper-button-prev, .swiper-button-next
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    background: none
+                    font-size: 30px
+                    color: $white
+
+    .home-content
+        position: relative
+        margin-top: -76px
+        z-index: 1
+
+        .page-wrapper2
+            .benefits-container
+                border: 1px solid $border_color
+                border-radius: 5px
+                background-color: $white
+
+                .benefits
+                    padding: 35px 60px
+                    display: flex
+                    justify-content: space-between
+
+                    .benefit
+                        display: flex
+                        height: 80px
+                        border-right: 1px solid $border_color
+
+                        .benefit-box
+                            display: flex
+                            align-items: center
+
+                            i
+                                color: $gray
+                                font-size: 30px
+
+                            .benefit-desc
+                                margin-left: 17px
+                                padding-right: 75px
+
+                                h6
+                                    font-size: 18px
+                                    margin-bottom: 3px
+
+                                span
+                                    font-size: 14px
+                                    font-weight: 200
+                                    color: $gray
+
+                    .benefit:last-child
+                        border: none
+
+                        .benefit-desc
+                            margin-left: 17px
+                            padding-right: 0
