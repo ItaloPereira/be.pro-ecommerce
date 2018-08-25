@@ -76,16 +76,16 @@
         <div class="page-wrapper2">
             <ProductGrid>
                 <Product
-                type="1"
-                title="Flecked cotton-blend"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"></Product>
-
-                <Product
                 type="0"
                 icon="fire"
                 title="POPULAR PRODUCT"
                 subtitle="More Producy"></Product>
+
+                <Product
+                type="1"
+                title="Flecked cotton-blend"
+                price="$175.00 USD"
+                productImage="http://localhost:3030/img/product.png"></Product>
 
                 <Product
                 type="1"
@@ -96,15 +96,17 @@
                 productImage="http://localhost:3030/img/product.png"></Product>
 
                 <Product
-                type="0"
-                icon="fire"
-                title="POPULAR PRODUCT"
-                subtitle="More Producy"></Product>
-
-                <Product
                 type="1"
                 title="Flecked cotton-blend"
                 price="$175.00 USD"
+                productImage="http://localhost:3030/img/product.png"></Product>
+
+                <Product
+                type="1"
+                badge="free"
+                title="Flecked cotton-blend"
+                oldPrice="$200.00 USD"
+                price="$0.00 USD"
                 productImage="http://localhost:3030/img/product.png"></Product>
 
                 <Product
@@ -118,7 +120,11 @@
 </template>
 
 <script>
+// libs
 import Swiper from 'swiper';
+
+// store
+import store from '../store/store';
 
 // components
 import ProductGrid from '../components/product-grid';
@@ -173,15 +179,14 @@ export default {
             }
         });
 
-        // const xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = () => {
-        //     if (this.readyState === 4 && this.status === 200) {
-        //         // eslint-disable-next-line
-        //         console.log(this);
-        //     }
-        // };
-        // xhttp.open('GET', 'http://localhost:3030/api/products', true);
-        // xhttp.send();
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = () => {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(store, 'rapapa');
+            }
+        };
+        xhttp.open('GET', 'http://localhost:3030/api/products', true);
+        xhttp.send();
     }
 };
 </script>
