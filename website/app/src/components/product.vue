@@ -10,21 +10,13 @@
                 </div>
             </div>
         </a>
-        <a href="javascript:;" class="product-show" v-if="type == 1">
+        <a href="javascript:;" class="product-show" v-if="type == 1" :class="theme ? theme : ''">
             <div class="product-content">
-                <div class="product-badge" v-if="badge">{{ badge }}</div>
+                <div class="product-badge" :class="badgeDirection == 'right' ? 'to-right ' : 'to-left'" v-if="badge">{{ badge }}</div>
                 <div class="product-img" :style="`background-image: url(${productImage})`"></div>
                 <h4 class="product-title">{{ title }}</h4>
                 <span class="product-old-price" v-if="oldPrice">{{ oldPrice }}</span>
                 <span class="product-price">{{ price }}</span>
-            </div>
-        </a>
-        <a href="javascript:;" class="product-highlight" v-if="type == 2">
-            <div class="highlight-content">
-                <div class="highlight-badge" v-if="badge">{{ badge }}</div>
-                <h4 class="highlight-suptitle">{{ suptitle }}</h4>
-                <span class="highlight-title">{{ title }}</span>
-                <button type="button"><span>{{ price }}</span><span>|</span><span>{{ buttonText }}</span></button>
             </div>
         </a>
     </div>
@@ -42,8 +34,8 @@ export default {
         'productImage',
         'oldPrice',
         'price',
-        'suptitle',
-        'buttonText'
+        'badgeDirection',
+        'theme'
     ]
 };
 </script>

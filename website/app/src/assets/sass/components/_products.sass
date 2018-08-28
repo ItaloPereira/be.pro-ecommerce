@@ -1,7 +1,6 @@
 .products-container
     margin: 30px 0
     display: grid
-    grid-template-columns: 23.5% 23.5% 23.5% 23.5%
     grid-column-gap: 2%
     grid-row-gap: 30px
 
@@ -45,8 +44,14 @@
 
         &:hover
             .product-content
+                .product-badge.to-right
+                    transform: translateX(6px)
+
+                .product-badge.to-left
+                    transform: translateX(-6px)
+
                 .product-img
-                    transform: scale(1.1)
+                    transform: scale(1.05)
 
         .product-content
             position: relative
@@ -55,9 +60,6 @@
                 position: absolute
                 top: 0
                 right: 0
-                display: flex
-                justify-content: center
-                align-items: center
                 padding: 5px 10px
                 box-sizing: border-box
                 border-radius: 5px
@@ -65,6 +67,11 @@
                 color: $white
                 font-size: 14px
                 font-weight: 400
+                transition: .25s
+
+                &.to-left
+                    left: 0
+                    right: unset
 
             .product-img
                 width: 100%
@@ -92,26 +99,50 @@
                 margin-top: 15px
                 color: $primary_color
 
-    .product-highlight
-        width: 100%
-        display: block
-        height: 300px
-        background-color: $primary_color
+        &.blue-theme
+            background-color: $primary_color
 
-        .highlight-content
-            position: relative
+            .product-content
+                .product-badge
+                    background-color: $white
+                    color: $primary_color
 
-            .highlight-badge
-                position: absolute
-                top: 0
-                left: 0
-                display: flex
-                justify-content: center
-                align-items: center
-                padding: 5px 10px
-                box-sizing: border-box
-                border-radius: 5px
-                background-color: $white
-                color: $primary_color
-                font-size: 14px
-                font-weight: 400
+                .product-title
+                    color: $white
+
+                .product-old-price
+
+                .product-price
+                    color: $white
+
+.load-more
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 126px
+    margin: 0 auto
+    margin-top: 20px
+    cursor: pointer
+
+    span
+        font-size: 14px
+        font-weight: 400
+
+    i
+        font-size: 20px
+        color: $primary_color
+
+    &.animate
+        i
+            animation-name: load-more-loader
+            animation-duration: .7s
+            animation-iteration-count: infinite
+
+@keyframes load-more-loader
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+
+

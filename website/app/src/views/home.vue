@@ -74,46 +74,95 @@
             </div>
         </div>
         <div class="page-wrapper2">
-            <ProductGrid>
+            <ProductGrid columns="4">
                 <Product
                 type="0"
                 icon="fire"
                 title="POPULAR PRODUCT"
-                subtitle="More Producy"></Product>
+                subtitle="More Producy"/>
 
                 <Product
                 type="1"
                 title="Flecked cotton-blend"
                 price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"></Product>
+                productImage="http://localhost:3030/img/product.png"/>
 
                 <Product
                 type="1"
                 badge="sale"
                 title="Flecked cotton-blend"
                 oldPrice="$200.00 USD"
+                badgeDirection="right"
                 price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"></Product>
+                productImage="http://localhost:3030/img/product.png"/>
 
                 <Product
                 type="1"
                 title="Flecked cotton-blend"
                 price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"></Product>
+                productImage="http://localhost:3030/img/product.png"/>
 
                 <Product
                 type="1"
                 badge="free"
+                badgeDirection="right"
                 title="Flecked cotton-blend"
-                oldPrice="$200.00 USD"
                 price="$0.00 USD"
-                productImage="http://localhost:3030/img/product.png"></Product>
+                productImage="http://localhost:3030/img/product.png"/>
 
                 <Product
-                type="2"
-                icon="fire"
-                title="POPULAR PRODUCT"
-                subtitle="More Producy"></Product>
+                type="1"
+                badge="new"
+                badgeDirection="left"
+                title="Striped cotton"
+                price="$50.00 USD"
+                theme="blue-theme"
+                productImage="http://localhost:3030/img/product.png"/>
+
+                <Product
+                type="1"
+                badge="old"
+                badgeDirection="right"
+                title="Striped cotton"
+                oldPrice="$75.00 USD"
+                price="$50.00 USD"
+                theme="blue-theme"
+                productImage="http://localhost:3030/img/product.png"/>
+
+                <Product
+                type="1"
+                title="Striped cotton"
+                price="$50.00 USD"
+                theme="blue-theme"
+                productImage="http://localhost:3030/img/product.png"/>
+
+                <Product
+                type="1"
+                title="Flecked cotton-blend"
+                price="$175.00 USD"
+                badge="asf"
+                badgeDirection="right"
+                productImage="http://localhost:3030/img/product.png"/>
+
+                <Product
+                type="1"
+                title="Flecked cotton-blend"
+                price="$175.00 USD"
+                productImage="http://localhost:3030/img/product.png"/>
+
+                <Product
+                type="1"
+                title="Flecked cotton-blend"
+                price="$175.00 USD"
+                productImage="http://localhost:3030/img/product.png"/>
+
+                <Product
+                type="1"
+                title="Flecked cotton-blend"
+                badge="freela"
+                badgeDirection="left"
+                price="$175.00 USD"
+                productImage="http://localhost:3030/img/product.png"/>
             </ProductGrid>
         </div>
     </section>
@@ -122,9 +171,6 @@
 <script>
 // libs
 import Swiper from 'swiper';
-
-// store
-import store from '../store/store';
 
 // components
 import ProductGrid from '../components/product-grid';
@@ -182,7 +228,7 @@ export default {
         const xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = () => {
             if (this.readyState === 4 && this.status === 200) {
-                console.log(store, 'rapapa');
+                // console.log(store, 'rapapa');
             }
         };
         xhttp.open('GET', 'http://localhost:3030/api/products', true);

@@ -1,11 +1,30 @@
 <template>
-    <div class="products-container">
-        <slot></slot>
+    <div class="CONTAINER">
+        <div class="products-container" :style="`grid-template-columns:${calcColumn()}`">
+            <slot></slot>
+        </div>
+        <div class="load-more">
+            <i class="icob-refresh-cw"></i>
+            <span>LOAD MORE</span>
+        </div>
     </div>
+
+
 </template>
 
 <script>
 export default {
-    name: 'ProductGrid'
+    name: 'ProductGrid',
+    props: ['columns'],
+    methods: {
+        calcColumn() {
+            let result = '';
+            for (let i = 0; i < this.columns; i += 1) {
+                result += 'auto ';
+            }
+
+            return result;
+        }
+    }
 };
 </script>
