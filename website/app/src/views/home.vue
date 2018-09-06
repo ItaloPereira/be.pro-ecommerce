@@ -71,99 +71,124 @@
                         </div>
                     </div>
                 </div>
+                <ProductGrid columns="4">
+                    <Product
+                    type="0"
+                    icon="fire"
+                    title="POPULAR PRODUCT"
+                    subtitle="More Producy"/>
+
+                    <Product
+                    type="1"
+                    title="Flecked cotton-blend"
+                    price="$175.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    badge="sale"
+                    title="Flecked cotton-blend"
+                    oldPrice="$200.00 USD"
+                    badgeDirection="right"
+                    price="$175.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    title="Flecked cotton-blend"
+                    price="$175.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    badge="free"
+                    badgeDirection="right"
+                    title="Flecked cotton-blend"
+                    price="$0.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    badge="new"
+                    badgeDirection="left"
+                    title="Striped cotton"
+                    price="$50.00 USD"
+                    theme="blue-theme"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    badge="old"
+                    badgeDirection="right"
+                    title="Striped cotton"
+                    oldPrice="$75.00 USD"
+                    price="$50.00 USD"
+                    theme="blue-theme"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    title="Striped cotton"
+                    price="$50.00 USD"
+                    theme="blue-theme"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    title="Flecked cotton-blend"
+                    price="$175.00 USD"
+                    badge="asf"
+                    badgeDirection="right"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    title="Flecked cotton-blend"
+                    price="$175.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    title="Flecked cotton-blend"
+                    price="$175.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+
+                    <Product
+                    type="1"
+                    title="Flecked cotton-blend"
+                    badge="freela"
+                    badgeDirection="left"
+                    price="$175.00 USD"
+                    productImage="http://localhost:3030/img/product.png"/>
+                </ProductGrid>
+                <!-- <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="slide in slides" :key="slide.id">
+                            <span
+                            class="slide-text-back"
+                            data-swiper-parallax-x="350"
+                            data-swiper-parallax-opacity="0">{{ slide.textBack }}</span>
+                            <div
+                            class="slide-img-background"
+                            :style="`background-image: url(${slide.bgrImg})`">
+                                <div class="slide-title-box">
+                                    <h2
+                                    data-swiper-parallax-x="-350"
+                                    data-swiper-parallax-opacity="0">{{ slide.title }}</h2>
+                                    <button
+                                    type="button"
+                                    data-swiper-parallax-x="-650"
+                                    data-swiper-parallax-opacity="0">{{ slide.buttonText }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-navigation">
+                        <div class="swiper-button-prev icob-arrow-left"></div>
+                        <div class="swiper-button-next icob-arrow-right"></div>
+                    </div>
+                </div> -->
             </div>
-        </div>
-        <div class="page-wrapper2">
-            <ProductGrid columns="4">
-                <Product
-                type="0"
-                icon="fire"
-                title="POPULAR PRODUCT"
-                subtitle="More Producy"/>
-
-                <Product
-                type="1"
-                title="Flecked cotton-blend"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                badge="sale"
-                title="Flecked cotton-blend"
-                oldPrice="$200.00 USD"
-                badgeDirection="right"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                title="Flecked cotton-blend"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                badge="free"
-                badgeDirection="right"
-                title="Flecked cotton-blend"
-                price="$0.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                badge="new"
-                badgeDirection="left"
-                title="Striped cotton"
-                price="$50.00 USD"
-                theme="blue-theme"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                badge="old"
-                badgeDirection="right"
-                title="Striped cotton"
-                oldPrice="$75.00 USD"
-                price="$50.00 USD"
-                theme="blue-theme"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                title="Striped cotton"
-                price="$50.00 USD"
-                theme="blue-theme"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                title="Flecked cotton-blend"
-                price="$175.00 USD"
-                badge="asf"
-                badgeDirection="right"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                title="Flecked cotton-blend"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                title="Flecked cotton-blend"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-
-                <Product
-                type="1"
-                title="Flecked cotton-blend"
-                badge="freela"
-                badgeDirection="left"
-                price="$175.00 USD"
-                productImage="http://localhost:3030/img/product.png"/>
-            </ProductGrid>
         </div>
     </section>
 </template>
