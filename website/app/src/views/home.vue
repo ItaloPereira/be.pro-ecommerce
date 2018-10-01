@@ -72,11 +72,28 @@
                     </div>
                 </div>
                 <ProductGrid columns="4">
+
                     <Product
+                    v-for="product in products"
+                    :key="product.id"
+                    :type="product.type"
+                    :title="product.title"
+                    :subtitle="product.type == 0 ? product.subtitle : ''"
+                    :icon="product.type == 0 ? product.icon : ''"
+                    :badge="product.badge ? product.badge : ''"
+                    :badgeDirection="product.badge ? product.badgeDirection : ''"
+                    :oldPrice="product.oldPrice == 1 ? product.oldPrice : ''"
+                    :price="product.type == 1 ? product.price : ''"
+                    :productImage="product.type == 1 ? product.productImage : ''"
+                    :theme="product.theme ? product.theme : ''"/>
+
+
+
+                    <!-- <Product
                     type="0"
                     icon="fire"
                     title="POPULAR PRODUCT"
-                    subtitle="More Producy"/>
+                    subtitle="More Product"/>
 
                     <Product
                     type="1"
@@ -159,7 +176,7 @@
                     badge="freela"
                     badgeDirection="left"
                     price="$175.00 USD"
-                    productImage="http://localhost:3030/img/product.png"/>
+                    productImage="http://localhost:3030/img/product.png"/> -->
                 </ProductGrid>
                 <!-- <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -198,6 +215,7 @@
 import Swiper from 'swiper';
 
 // components
+// import { mapGetters, mapActions } from 'vuex';
 import ProductGrid from '../components/product-grid';
 import Product from '../components/product';
 
@@ -206,6 +224,14 @@ export default {
     components: {
         ProductGrid,
         Product
+    },
+    computed: {
+        // ...mapGetters({
+        //     products: 'products'
+        // })
+    },
+    methods: {
+        // ...mapActions(['getProducts'])
     },
     data() {
         return {
@@ -249,15 +275,9 @@ export default {
                 prevEl: '.swiper-navigation .swiper-button-prev'
             }
         });
-
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = () => {
-            if (this.readyState === 4 && this.status === 200) {
-                // console.log(store, 'rapapa');
-            }
-        };
-        xhttp.open('GET', 'http://localhost:3030/api/products', true);
-        xhttp.send();
+        // eslint-disable-next-line
+        console.log(this.$store.getters.homePage);
+        // this.getProducts();
     }
 };
 </script>

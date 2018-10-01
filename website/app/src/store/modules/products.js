@@ -1,11 +1,35 @@
-const state = {
+import { ProductsService } from '@/api';
+
+const defaultState = {
     products: []
 };
 
-const mutations = {};
+const actions = {
+    getProducts: context => {
+        ProductsService.get()
+            .then(response => {
+                context.commit('PRODUCTS_UPDATE', response);
+            })
+            .catch(error => {
+                // eslint-disable-next-line
+                console.error(error);
+            });
+    }
+};
 
-const actions = {};
+const mutations = {
+    PRODUCTS_UPDATE: (state, payload) => {
+        state.products = payload.data;
+    }
+};
 
-const getters = {};
+const getters = {
+    products: state => state.products
+};
 
-export default { state, mutations, actions, getters }
+export default {
+    state: defaultState,
+    actions,
+    mutations,
+    getters
+};
