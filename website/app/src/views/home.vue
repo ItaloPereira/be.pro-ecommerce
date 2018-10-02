@@ -215,7 +215,7 @@
 import Swiper from 'swiper';
 
 // components
-// import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import ProductGrid from '../components/product-grid';
 import Product from '../components/product';
 
@@ -226,12 +226,12 @@ export default {
         Product
     },
     computed: {
-        // ...mapGetters({
-        //     products: 'products'
-        // })
+        ...mapGetters({
+            products: 'products'
+        })
     },
     methods: {
-        // ...mapActions(['getProducts'])
+        ...mapActions(['getProducts'])
     },
     data() {
         return {
@@ -275,9 +275,7 @@ export default {
                 prevEl: '.swiper-navigation .swiper-button-prev'
             }
         });
-        // eslint-disable-next-line
-        console.log(this.$store.getters.homePage);
-        // this.getProducts();
+        this.getProducts();
     }
 };
 </script>

@@ -1,13 +1,21 @@
 import Vue from 'vue';
-import App from './App';
+import { sync } from 'vuex-router-sync';
+import vbclass from 'vue-body-class';
+
+import ApiService from '@/api';
+
 import router from './router';
+import store from './store';
+import App from './App';
 
 Vue.config.productionTip = false;
+ApiService.init();
 
-/* eslint-disable no-new */
+sync(store, router);
+Vue.use(vbclass, router);
+
 new Vue({
-    el: '#app',
     router,
-    components: { App },
-    template: '<App/>'
-});
+    store,
+    render: h => h(App)
+}).$mount('#app');

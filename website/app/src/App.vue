@@ -7,11 +7,15 @@
 
 <script>
 import Nav from './components/nav';
+import { EventBus } from './utils/event-bus';
 
 export default {
-    name: 'App',
+    name: 'app',
     components: {
         Nav
+    },
+    mounted() {
+        EventBus.$emit('app-mounted');
     }
 };
 </script>
