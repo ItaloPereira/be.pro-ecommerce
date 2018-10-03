@@ -1,14 +1,14 @@
-import { ProductsService } from '@/api';
+import { SlidesService } from '@/api';
 
 const defaultState = {
-    products: []
+    slides: []
 };
 
 const actions = {
-    getProducts: context => {
-        ProductsService.getProducts()
+    getSlides: context => {
+        SlidesService.getSlides()
             .then(response => {
-                context.commit('PRODUCTS_UPDATE', response);
+                context.commit('SLIDES_UPDATE', response);
             })
             .catch(error => {
                 // eslint-disable-next-line
@@ -18,13 +18,13 @@ const actions = {
 };
 
 const mutations = {
-    PRODUCTS_UPDATE: (state, payload) => {
-        state.products = payload.data.products;
+    SLIDES_UPDATE: (state, payload) => {
+        state.slides = payload.data.slides;
     }
 };
 
 const getters = {
-    products: state => state.products
+    slides: state => state.slides
 };
 
 export default {

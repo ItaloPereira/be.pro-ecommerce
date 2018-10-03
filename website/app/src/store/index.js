@@ -8,6 +8,7 @@ import Vuex from 'vuex';
  * Import Modules
  */
 import productsModule from './modules/products';
+import slidesModule from './modules/slides';
 
 /**
  * Instance Vuex
@@ -19,6 +20,7 @@ Vue.use(Vuex);
  */
 export default new Vuex.Store({
     modules: {
-        products: productsModule
+        products: productsModule,
+        slides: slidesModule
     }
 });

@@ -4,6 +4,7 @@
 
         .swiper-container
             height: 640px
+            background: linear-gradient(to top, rgba($black, .5) 0%, rgba($black, 0) 80%)
 
             .swiper-slide
                 .slide-text-back
@@ -20,13 +21,22 @@
 
                 .slide-img-background
                     position: relative
-                    width: 447px
                     height: 650px
                     margin: 0 auto
                     background-size: contain
                     background-repeat: no-repeat
                     background-position: center
+                    background-color: $primary_color
                     z-index: 1
+
+                    &:before
+                        content: ''
+                        position: absolute
+                        top: 0
+                        left: 0
+                        bottom: 0
+                        right: 0
+                        background: linear-gradient(to top, rgba($black, .5) 0%, rgba($black, 0) 80%)
 
                     .slide-title-box
                         position: absolute
@@ -42,6 +52,7 @@
                             color: $white
                             text-align: center
                             user-select: none
+                            // text-shadow: 0 0 40px rgba($black, 1)
 
                         button
                             width: 200px

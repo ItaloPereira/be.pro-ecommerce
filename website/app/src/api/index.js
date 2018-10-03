@@ -53,3 +53,9 @@ export const ProductsService = {
         return ApiService.get('/products');
     }
 };
+
+export const SlidesService = {
+    getSlides() {
+        return ApiService.get('/slides');
+    }
+};
