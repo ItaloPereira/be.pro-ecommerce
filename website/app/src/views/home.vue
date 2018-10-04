@@ -71,10 +71,10 @@
                         </div>
                     </div>
                 </div>
-                <ProductGrid columns="4">
+                <ProductGrid columns="4" :lastPage="products.pagination && products.pagination.isLastPage">
 
                     <Product
-                    v-for="product in products"
+                    v-for="product in products.products"
                     :key="product.id"
                     :type="product.type"
                     :title="product.title"
@@ -129,7 +129,7 @@ export default {
                 prevEl: '.swiper-navigation .swiper-button-prev'
             }
         });
-        this.getProducts();
+        this.getProducts(0);
         this.getSlides();
     },
     updated() {

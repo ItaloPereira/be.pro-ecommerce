@@ -49,8 +49,8 @@ export default ApiService;
 
 // App Services
 export const ProductsService = {
-    getProducts() {
-        return ApiService.get('/products');
+    getProducts(page) {
+        return ApiService.get(`/products?page=${page}`);
     }
 };
 

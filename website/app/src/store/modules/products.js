@@ -5,8 +5,8 @@ const defaultState = {
 };
 
 const actions = {
-    getProducts: context => {
-        ProductsService.getProducts()
+    getProducts: (context, page) => {
+        ProductsService.getProducts(page)
             .then(response => {
                 context.commit('PRODUCTS_UPDATE', response);
             })
@@ -19,7 +19,7 @@ const actions = {
 
 const mutations = {
     PRODUCTS_UPDATE: (state, payload) => {
-        state.products = payload.data.products;
+        state.products = payload.data;
     }
 };
 

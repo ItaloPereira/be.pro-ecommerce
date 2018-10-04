@@ -13,6 +13,14 @@ server.use(cors());
 server.use('/api', router);
 
 router.get('/products', (req, res) => {
+    let lastPage;
+
+    if (req.query.page == 0) {
+        lastPage = false;
+    } else {
+        lastPage = true;
+    }
+
     const data = {
         products: [
             {
@@ -27,7 +35,7 @@ router.get('/products', (req, res) => {
                 type: '1',
                 title: 'Striped cotton t-shirt',
                 price: '$175.00 USD',
-                productImage: 'http://localhost:3030/img/product.png'
+                productImage: 'http://localhost:3030/img/product4.png'
             },
             {
                 id: 2,
@@ -98,7 +106,7 @@ router.get('/products', (req, res) => {
                 type: '1',
                 title: 'Flecked cotton-blend',
                 price: '$175.00 USD',
-                productImage: 'http://localhost:3030/img/product2.png'
+                productImage: 'http://localhost:3030/img/product4.png'
             },
             {
                 id: 10,
@@ -107,9 +115,20 @@ router.get('/products', (req, res) => {
                 badge: 'freela',
                 badgeDirection: 'left',
                 price: '$170.00 USD',
+                productImage: 'http://localhost:3030/img/product2.png'
+            },
+            {
+                id: 11,
+                type: '1',
+                title: 'Sequin star t-shirt',
+                price: '$170.00 USD',
                 productImage: 'http://localhost:3030/img/product.png'
             }
-        ]
+        ],
+        pagination: {
+            isLastPage: lastPage,
+            thisPage: req.query.page++
+        }
     };
     console.log('get products');
     

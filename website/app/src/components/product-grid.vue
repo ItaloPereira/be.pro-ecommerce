@@ -3,7 +3,7 @@
         <div class="products-container" :style="`grid-template-columns:${calcColumn()}`">
             <slot></slot>
         </div>
-        <LoadMore/>
+        <LoadMore v-if="!lastPage"/>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     components: {
         LoadMore
     },
-    props: ['columns'],
+    props: ['columns', 'lastPage'],
     methods: {
         calcColumn() {
             let result = '';
