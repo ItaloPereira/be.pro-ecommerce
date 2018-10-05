@@ -1,5 +1,5 @@
 <template>
-    <div class="load-more">
+    <div :class="`load-more${isLoading ? ' animate' : ''}`" @click="getNextProductsPage">
         <i class="icob-refresh-cw"></i>
         <span>LOAD MORE</span>
     </div>
@@ -7,6 +7,12 @@
 
 <script>
 export default {
-    name: 'LoadMore'
+    name: 'LoadMore',
+    props: ['isLoading'],
+    methods: {
+        getNextProductsPage() {
+            this.$emit('click');
+        }
+    }
 };
 </script>

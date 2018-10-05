@@ -1,0 +1,36 @@
+{
+
+    "dev": {
+        "driver": "mysql",
+        "user": "root",
+        "password": "root",
+        "host": "database",
+        "database": "embraer",
+        "multipleStatements": true
+    },
+    "prod": {
+        "driver": "mysql",
+        "user": "test",
+        "password": "test",
+        "host": "localhost",
+        "database": "embraer",
+        "multipleStatements": true
+    },
+    "hlg": {
+        "driver": "mysql",
+        "user": "embraer",
+        "password": "test",
+        "host": "localhost",
+        "database": "embraer",
+        "multipleStatements": true
+    },
+    "qa": {
+        "driver": "mysql",
+        "user": "embraer",
+        "password": "ZTBlYmJkNGU5N2U3Y2Y0Mwo",
+        "host": "localhost",
+        "database": "embraer",
+        "multipleStatements": true
+    }
+
+}

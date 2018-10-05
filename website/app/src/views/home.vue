@@ -1,33 +1,7 @@
 <template>
     <section class="page home">
         <div class="home-header">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="slide in slides" :key="slide.id">
-                        <span
-                        class="slide-text-back"
-                        data-swiper-parallax-x="350"
-                        data-swiper-parallax-opacity="0">{{ slide.textBack }}</span>
-                        <div
-                        class="slide-img-background"
-                        :style="`background-image: url(${slide.bgrImg})`">
-                            <div class="slide-title-box">
-                                <h2
-                                data-swiper-parallax-x="-350"
-                                data-swiper-parallax-opacity="0">{{ slide.title }}</h2>
-                                <button
-                                type="button"
-                                data-swiper-parallax-x="-650"
-                                data-swiper-parallax-opacity="0">{{ slide.buttonText }}</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-navigation">
-                    <div class="swiper-button-prev icob-arrow-left"></div>
-                    <div class="swiper-button-next icob-arrow-right"></div>
-                </div>
-            </div>
+            <Slider :slides="slides" type="0"/>
         </div>
         <div class="home-content">
             <div class="page-wrapper2">
@@ -72,9 +46,8 @@
                     </div>
                 </div>
                 <ProductGrid columns="4" :lastPage="products.pagination && products.pagination.isLastPage">
-
                     <Product
-                    v-for="product in products.products"
+                    v-for="product in productList"
                     :key="product.id"
                     :type="product.type"
                     :title="product.title"
@@ -86,8 +59,8 @@
                     :price="product.price"
                     :productImage="product.productImage"
                     :theme="product.theme"/>
-
                 </ProductGrid>
+                <LoadMore v-if="products.pagination && !products.pagination.isLastPage" @click="getNextProductsPage" :isLoading="isLoading"/>
             </div>
         </div>
     </section>
@@ -99,14 +72,24 @@ import Swiper from 'swiper';
 
 // components
 import { mapGetters, mapActions } from 'vuex';
+import Slider from '../components/slider';
 import ProductGrid from '../components/product-grid';
 import Product from '../components/product';
+import LoadMore from '../components/load-more';
 
 export default {
     name: 'Home',
     components: {
+        Slider,
         ProductGrid,
-        Product
+        Product,
+        LoadMore
+    },
+    data() {
+        return {
+            isLoading: false,
+            productList: []
+        };
     },
     computed: {
         ...mapGetters({
@@ -115,7 +98,11 @@ export default {
         })
     },
     methods: {
-        ...mapActions(['getProducts', 'getSlides'])
+        ...mapActions(['getProducts', 'getSlides']),
+        getNextProductsPage() {
+            this.getProducts(this.products.pagination.thisPage + 1);
+            this.isLoading = true;
+        }
     },
     mounted() {
         // eslint-disable-next-line
@@ -134,6 +121,12 @@ export default {
     },
     updated() {
         document.querySelector('.swiper-container').swiper.update();
+    },
+    watch: {
+        products(list) {
+            this.productList = [...this.productList, ...list.products];
+            this.isLoading = false;
+        }
     }
 };
 </script>

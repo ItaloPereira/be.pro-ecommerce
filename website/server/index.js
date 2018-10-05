@@ -12,10 +12,21 @@ server.use(cors());
 
 server.use('/api', router);
 
+// const con = mysql.createConnection({
+//     host: '172.28.128.3',
+//     user: 'Vagrant',
+//     password: 'vagrant'
+// });
+
+// con.connect(function (err) {
+//     if (err) throw err;
+//     console.log("Connected!");
+// });
+
 router.get('/products', (req, res) => {
     let lastPage;
 
-    if (req.query.page == 0) {
+    if (req.query.page <= 3) {
         lastPage = false;
     } else {
         lastPage = true;
@@ -24,21 +35,21 @@ router.get('/products', (req, res) => {
     const data = {
         products: [
             {
-                id: 0,
+                id: Math.floor(Math.random() * 10000000),
                 type: '0',
                 icon: 'fire',
                 title: 'POPULAR PRODUCT',
                 subtitle: 'More Product'
             },
             {
-                id: 1,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 title: 'Striped cotton t-shirt',
                 price: '$175.00 USD',
                 productImage: 'http://localhost:3030/img/product4.png'
             },
             {
-                id: 2,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 badge: 'sale',
                 badgeDirection: 'right',
@@ -48,14 +59,14 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product2.png'
             },
             {
-                id: 3,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 title: 'V-neck cotton t-shirt',
                 price: '$175.00 USD',
                 productImage: 'http://localhost:3030/img/product.png'
             },
             {
-                id: 4,
+                id: Math.floor(Math.random() * 10000000),
                 type: 1,
                 badge: 'free',
                 badgeDirection: 'right',
@@ -64,7 +75,7 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product3.png'
             },
             {
-                id: 5,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 badge: 'new',
                 badgeDirection: 'left',
@@ -74,7 +85,7 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product4.png'
             },
             {
-                id: 6,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 badge: 'old',
                 badgeDirection: 'right',
@@ -85,7 +96,7 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product2.png'
             },
             {
-                id: 7,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 title: 'Double layer top',
                 price: '$50.00 USD',
@@ -93,7 +104,7 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product.png'
             },
             {
-                id: 8,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 badge: 'asf',
                 badgeDirection: 'right',
@@ -102,14 +113,14 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product3.png'
             },
             {
-                id: 9,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 title: 'Flecked cotton-blend',
                 price: '$175.00 USD',
                 productImage: 'http://localhost:3030/img/product4.png'
             },
             {
-                id: 10,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 title: 'Sequin star t-shirt',
                 badge: 'freela',
@@ -118,7 +129,7 @@ router.get('/products', (req, res) => {
                 productImage: 'http://localhost:3030/img/product2.png'
             },
             {
-                id: 11,
+                id: Math.floor(Math.random() * 10000000),
                 type: '1',
                 title: 'Sequin star t-shirt',
                 price: '$170.00 USD',
@@ -131,7 +142,7 @@ router.get('/products', (req, res) => {
         }
     };
     console.log('get products');
-    
+
     res.status(200).send(data);
 });
 

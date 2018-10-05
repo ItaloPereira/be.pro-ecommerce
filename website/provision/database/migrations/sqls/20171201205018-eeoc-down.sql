@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS  `conference_meeting_participant`;
+DROP TABLE IF EXISTS  `conference_sponsor`;
+DROP TABLE IF EXISTS  `portal_conference`;
+DROP TABLE IF EXISTS  `sponsor_type`;
+DROP TABLE IF EXISTS  `sponsor`;
+DROP TABLE IF EXISTS  `conference_participant`;
+DROP TABLE IF EXISTS  `conference_meeting`;
+DROP TABLE IF EXISTS  `conference_activity`;
+DROP TABLE IF EXISTS  `conference`;

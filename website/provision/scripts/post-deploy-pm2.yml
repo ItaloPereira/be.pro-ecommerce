@@ -1,0 +1,57 @@
+---
+- name: Solution deploy
+  hosts: localhost
+  tasks:
+    - name: "-- pre-build solution"
+      shell: "{{ item }}"
+      args:
+        chdir: "{{ remote_solution_directory }}"
+      with_items:
+      - "n 6.10.2"
+
+    - name: "-- building templates"
+      shell: "{{ item }}"
+      args:
+        chdir: "{{ remote_solution_directory }}/templates"
+      with_items:
+      - "yarn"
+
+    - name: "-- building server"
+      shell: "{{ item }}"
+      args:
+        chdir: "{{ remote_solution_directory }}/server"
+      with_items:
+      - "yarn"
+
+    - name: "-- building portal"
+      shell: "{{ item }}"
+      args:
+        chdir: "{{ remote_solution_directory }}/portal"
+      with_items:
+      - "yarn"
+      - "yarn run build"
+
+    - name: "-- building cms"
+      shell: "{{ item }}"
+      args:
+        chdir: "{{ remote_solution_directory }}/cms"
+      with_items:
+      - "yarn"
+      - "yarn run build"
+
+    - name: "-- start"
+      shell: "{{ item }}"
+      args:
+        chdir: "{{ remote_solution_directory }}"
+      with_items:
+      - "pm2 flush && pm2 delete ecosystem.json"
+      - "pm2 start ecosystem.json --env qa"
+
+    - name: Deploy Cuckoo
+      uri:
+        url: https://slackbot.nodo.cc/api/deploy/broadcast
+        method: POST
+        headers:
+          Content_Type: "application/json"
+        body_format: json
+        body: '{"token": "{{ cuckoo_token }}","project_id": {{ project_id }},"message": "{{ deploy_message }}"}'
