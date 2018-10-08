@@ -1,1 +1,0 @@
-ALTER TABLE `support_type` DROP COLUMN `introduction`;

@@ -1,2 +1,0 @@
-ALTER TABLE `conference_activity_participant` ADD COLUMN `participant_id` INT(11) UNSIGNED NOT NULL AFTER `activity_id`;
-ALTER TABLE `conference_activity_participant` ADD CONSTRAINT `pk_cap_pid` FOREIGN KEY (`participant_id`) REFERENCES `conference_participant`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;

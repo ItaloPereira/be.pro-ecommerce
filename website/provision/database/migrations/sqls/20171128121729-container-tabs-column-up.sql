@@ -1,1 +1,0 @@
-ALTER TABLE `container` ADD COLUMN `tabs` JSON NULL AFTER `mobile`;
