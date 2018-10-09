@@ -7,14 +7,20 @@ const API = require('./api');
 
 router.get('/products', (req, res) => {
 
-    const page = Number(req.query.page);
+    const options = req.query;
 
-    API.getProducts(page)
+    let data = {
+        products: [],
+        pagination: {
+            thisPage: page + 1
+        }
+    };
+
+    API.getProducts(options)
         .then((response) => {
+            
             res.status(200).send(response);
         });
-
-
 
     console.log('get products');
 });
