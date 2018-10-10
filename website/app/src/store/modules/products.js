@@ -5,8 +5,8 @@ const defaultState = {
 };
 
 const actions = {
-    getProducts: (context, page) => {
-        ProductsService.getProducts(page)
+    getProducts: (context, data) => {
+        ProductsService.getProducts(data.limit, data.offset)
             .then(response => {
                 context.commit('PRODUCTS_UPDATE', response);
             })

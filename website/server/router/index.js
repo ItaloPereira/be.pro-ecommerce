@@ -1,29 +1,7 @@
-'use strict';
-
 const express = require("express");
 const router = express.Router();
 
-const API = require('./api');
-
-router.get('/products', (req, res) => {
-
-    const options = req.query;
-
-    let data = {
-        products: [],
-        pagination: {
-            thisPage: page + 1
-        }
-    };
-
-    API.getProducts(options)
-        .then((response) => {
-            
-            res.status(200).send(response);
-        });
-
-    console.log('get products');
-});
+const classProducts = require('../src/products');
 
 router.get('/slides', (req, res) => {
     const data = {

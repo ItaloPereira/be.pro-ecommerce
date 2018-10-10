@@ -10,13 +10,13 @@
                 </div>
             </div>
         </a>
-        <a href="javascript:;" class="product-show" v-if="type == 1" :class="theme ? theme : ''">
+        <a href="javascript:;" class="product-show" v-if="type == 1" :class="theme ? theme + '-theme' : ''">
             <div class="product-content">
                 <div class="product-badge" :class="badgeDirection == 'right' ? 'to-right ' : 'to-left'" v-if="badge">{{ badge }}</div>
                 <div class="product-img" :style="`background-image: url(${productImage})`"></div>
                 <h4 class="product-title">{{ title }}</h4>
-                <span class="product-old-price" v-if="oldPrice">{{ oldPrice }}</span>
-                <span class="product-price">{{ price }}</span>
+                <span class="product-old-price" v-if="oldPrice">${{ oldPrice }}.00 USD</span>
+                <span class="product-price">${{ price }}.00 USD</span>
             </div>
         </a>
     </div>

@@ -5,18 +5,11 @@ class Products extends Model {
         super('products');
     }
 
-    async list(options, connection = null) {
-        const params = [];
-        const page = options.page + 1;
-        const sql = `SELECT *
-                    FROM products
-                    LIMIT 12
-                    OFFSET ${page}`;
-
-        return this.query(sql, params, connection);
+    list({ limit = 12, offset = 0 }) {
+        const sql = `SELECT * FROM products LIMIT ? OFFSET ?`;
+        const params = [limit, offset];
+        return this.query(sql, params);
     }
-
 }
-
 
 module.exports = new Products();

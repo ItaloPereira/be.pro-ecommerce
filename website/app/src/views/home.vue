@@ -100,7 +100,10 @@ export default {
     methods: {
         ...mapActions(['getProducts', 'getSlides']),
         getNextProductsPage() {
-            this.getProducts(this.products.pagination.thisPage + 1);
+            this.getProducts({
+                limit: 12,
+                offset: this.products.pagination.thisPage + 1
+            });
             this.isLoading = true;
         }
     },
@@ -116,7 +119,7 @@ export default {
                 prevEl: '.swiper-navigation .swiper-button-prev'
             }
         });
-        this.getProducts(0);
+        this.getProducts({ limit: 12, offset: 0 });
         this.getSlides();
     },
     updated() {
