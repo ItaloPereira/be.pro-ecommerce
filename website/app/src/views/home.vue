@@ -100,10 +100,7 @@ export default {
     methods: {
         ...mapActions(['getProducts', 'getSlides']),
         getNextProductsPage() {
-            this.getProducts({
-                limit: 12,
-                offset: this.products.pagination.thisPage + 1
-            });
+            this.getProducts(this.products.pagination.links.next);
             this.isLoading = true;
         }
     },
@@ -119,7 +116,7 @@ export default {
                 prevEl: '.swiper-navigation .swiper-button-prev'
             }
         });
-        this.getProducts({ limit: 12, offset: 0 });
+        this.getProducts(`limit=12&offset=0`);
         this.getSlides();
     },
     updated() {
@@ -127,7 +124,7 @@ export default {
     },
     watch: {
         products(list) {
-            this.productList = [...this.productList, ...list.products];
+            this.productList = [...this.productList, ...list.data];
             this.isLoading = false;
         }
     }

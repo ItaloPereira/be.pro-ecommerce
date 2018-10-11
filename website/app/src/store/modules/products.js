@@ -1,12 +1,12 @@
 import { ProductsService } from '@/api';
 
 const defaultState = {
-    products: []
+    products: {}
 };
 
 const actions = {
     getProducts: (context, data) => {
-        ProductsService.getProducts(data.limit, data.offset)
+        ProductsService.getProducts(data)
             .then(response => {
                 context.commit('PRODUCTS_UPDATE', response);
             })

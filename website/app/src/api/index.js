@@ -49,8 +49,8 @@ export default ApiService;
 
 // App Services
 export const ProductsService = {
-    getProducts(limit = 12, offset = 0) {
-        return ApiService.get(`/products?page=${limit}&offset=${offset}`);
+    getProducts(query) {
+        return ApiService.get(`/products?${query}`);
     }
 };
 
