@@ -1,21 +1,9 @@
 const ProductsController = require(`../../controllers/products`);
+const paginate = require(`../../utils/paginate`);
 
 module.exports = async (req, res) => {
     const products = await ProductsController.list(req.query.limit, req.query.offset);
-    res.status(200).send(products);
-    // const options = req.query;
-    // const products = await classProducts.list(options);
-    // const totalProducts = await classProducts.count();
-    // const thisPage = Number(options.page) + 1;
+    const pagination = paginate(products.count, req.query);
 
-    // let data = {
-    //     products: products,
-    //     pagination: {
-    //         thisPage: thisPage,
-    //         totalProducts: totalProducts
-    //     }
-    // };
-
-    // res.status(200).send(data);
-    // console.log('get products');
+    res.status(200).send({ data: products.data, pagination });
 };

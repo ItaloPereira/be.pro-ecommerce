@@ -3,18 +3,16 @@ const Products = {};
 
 Products.list = async (limit, offset) => {
     let products = await ProductsModel.list({limit, offset});
-    const total = await ProductsModel.count();
+    const [{count}] = await ProductsModel.count();
 
     products.map((prod, index) => {
         products[index].productImage = `http://localhost:3030/img/products/${prod.productImage}`;
     });
 
-    const data = {
-        products: products,
-        total: total[0]['COUNT(*)']
-    }
+    const data = products;
+
     //modifies
-    return data;
+    return { data, count };
 }
 
 module.exports = Products;

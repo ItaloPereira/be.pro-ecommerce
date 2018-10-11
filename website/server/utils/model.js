@@ -20,7 +20,7 @@ class Model {
     }
 
     async count(connection = null) {
-        const sql = `SELECT COUNT(*) FROM ${this.tableName};`;
+        const sql = `SELECT COUNT(*) AS count FROM ${this.tableName};`;
         return this.query(sql, [], connection);
     }
 
