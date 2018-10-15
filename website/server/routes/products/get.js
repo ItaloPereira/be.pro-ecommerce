@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
         offset: Number(req.query.offset)
     }
 
-
     const products = await ProductsController.list(options.limit, options.offset);
     const pagination = paginate(products.count, options);
 

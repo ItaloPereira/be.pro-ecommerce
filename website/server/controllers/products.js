@@ -1,4 +1,5 @@
 const ProductsModel = require(`../models/products`);
+const config = require(`../config`);
 const Products = {};
 
 Products.list = async (limit, offset) => {
@@ -6,7 +7,7 @@ Products.list = async (limit, offset) => {
     const [{count}] = await ProductsModel.count();
 
     products.map((prod, index) => {
-        products[index].productImage = `http://localhost:3030/img/products/${prod.productImage}`;
+        products[index].productImage = `${config.url}/img/products/${prod.productImage}`;
     });
 
     const data = products;

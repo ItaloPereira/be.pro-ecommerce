@@ -1,5 +1,6 @@
 CREATE TABLE `products` (
   `id` INT AUTO_INCREMENT,
+  `category_id` INT NULL,
   `type` INT NULL,
   `title` VARCHAR(45) NULL,
   `subtitle` VARCHAR(45) NULL,
@@ -10,6 +11,21 @@ CREATE TABLE `products` (
   `price` DECIMAL(8) NULL,
   `productImage` VARCHAR(45) NULL,
   `theme` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+
+CREATE TABLE `categories` (
+  `id` INT AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+
+CREATE TABLE `slides` (
+  `id` INT AUTO_INCREMENT,
+  `type` INT NULL,
+  `textBack` VARCHAR(45) NULL,
+  `bgrImage` VARCHAR(45) NULL,
+  `title` VARCHAR(45) NULL,
+  `buttonText` VARCHAR(45) NULL,
+  `href` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 
   INSERT INTO `products` (`id`, `type`, `title`, `subtitle`, `icon`, `badge`, `badgeDirection`, `oldPrice`, `price`, `productImage`, `theme`)
@@ -48,3 +64,10 @@ VALUES
 	(32, 1, 'Sequin star t-shirt', NULL, NULL, 'sale', 'right', 200, 100, 'product.png', NULL),
 	(33, 1, 'Ruffle sleeve t-shirt', NULL, NULL, NULL, NULL, NULL, 175, 'product2.png', NULL),
 	(34, 1, 'Double layer top', NULL, NULL, NULL, NULL, NULL, 200, 'product3.png', NULL);
+
+INSERT INTO `slides` (`id`, `type`, `textBack`, `bgrImage`, `title`, `buttonText`, `href`)
+VALUES
+	(1, 1, 'FASHION', 'bgr-header.png', 'New Arrival', 'BUY NOW', NULL),
+	(2, 1, 'COTTON', 'bgr-header2.png', 'Cotton Clothes', 'SEE NOW', NULL),
+	(3, 1, 'PRET CAPS', 'bgr-header3.png', 'New Caps', 'BUY NOW', NULL);
+

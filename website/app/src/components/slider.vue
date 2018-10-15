@@ -9,15 +9,15 @@
                     data-swiper-parallax-opacity="0">{{ slide.textBack }}</span>
                     <div
                     class="slide-img-background"
-                    :style="`background-image: url(${slide.bgrImg})`">
+                    :style="`background-image: url(${slide.bgrImage})`">
                         <div class="slide-title-box">
                             <h2
                             data-swiper-parallax-x="-350"
                             data-swiper-parallax-opacity="0">{{ slide.title }}</h2>
-                            <button
-                            type="button"
+                            <a
+                            :href="slide.href"
                             data-swiper-parallax-x="-650"
-                            data-swiper-parallax-opacity="0">{{ slide.buttonText }}</button>
+                            data-swiper-parallax-opacity="0">{{ slide.buttonText }}</a>
                         </div>
                     </div>
                 </div>

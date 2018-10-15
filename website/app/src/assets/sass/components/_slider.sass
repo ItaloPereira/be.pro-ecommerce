@@ -1,0 +1,83 @@
+.swiper-container
+    height: 640px
+
+    .swiper-slide
+        .slide-text-back
+            position: absolute
+            top: 140px
+            right: 0
+            left: 0
+            font-family: $secondary_font
+            font-size: 150px
+            font-weight: 400
+            text-align: center
+            color: $secondary_color
+            user-select: none
+
+        .slide-img-background
+            position: relative
+            height: 650px
+            margin: 0 auto
+            background-size: contain
+            background-repeat: no-repeat
+            background-position: center
+            z-index: 1
+
+            &:before
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                bottom: 0
+                right: 0
+
+            .slide-title-box
+                position: absolute
+                top: 278px
+                right: 0
+                left: 0
+                margin: 0 auto
+
+                h2
+                    font-family: $secondary_font
+                    font-size: 72px
+                    font-weight: 400
+                    color: $white
+                    text-align: center
+                    user-select: none
+                    text-shadow: 0 0 50px rgba($black, 1)
+
+                a
+                    width: 200px
+                    height: 50px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    margin: 0 auto
+                    border: none
+                    border-radius: 50px
+                    background-color: $primary_color
+                    color: $white
+                    font-size: 18px
+                    font-weight: 300
+                    letter-spacing: 5px
+                    margin-top: 26px
+                    cursor: pointer
+                    outline: none
+
+    .swiper-navigation
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        width: 1170px
+        margin: 0 auto
+        height: 100%
+
+        .swiper-button-prev, .swiper-button-next
+            display: flex
+            justify-content: center
+            align-items: center
+            background: none
+            font-size: 30px
+            color: $white

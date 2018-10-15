@@ -19,7 +19,7 @@ const actions = {
 
 const mutations = {
     SLIDES_UPDATE: (state, payload) => {
-        state.slides = payload.data.slides;
+        state.slides = payload.data;
     }
 };
 

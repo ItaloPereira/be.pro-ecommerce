@@ -1,7 +1,7 @@
 <template>
     <section class="page home">
         <div class="home-header">
-            <Slider :slides="slides" type="0"/>
+            <Slider :slides="slides.data" type="0"/>
         </div>
         <div class="home-content">
             <div class="page-wrapper2">
