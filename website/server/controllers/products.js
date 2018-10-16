@@ -7,7 +7,8 @@ Products.list = async (limit, offset) => {
     const [{count}] = await ProductsModel.count();
 
     products.map((prod, index) => {
-        products[index].productImage = `${config.url}/img/products/${prod.productImage}`;
+        if (products[index].product_image)
+        products[index].product_image = `${config.url}/img/products/${prod.product_image}`;
     });
 
     const data = products;

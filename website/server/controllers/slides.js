@@ -6,7 +6,7 @@ Slides.list = async () => {
     let slides = await SlidesModel.list();
 
     slides.map((slide, index) => {
-        slides[index].bgrImage = `${config.url}/img/slides/${slide.bgrImage}`;
+        slides[index].bgr_image = `${config.url}/img/slides/${slide.bgr_image}`;
     });
 
     const data = slides;

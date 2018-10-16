@@ -6,10 +6,10 @@
                     <span
                     class="slide-text-back"
                     data-swiper-parallax-x="350"
-                    data-swiper-parallax-opacity="0">{{ slide.textBack }}</span>
+                    data-swiper-parallax-opacity="0">{{ slide.text_back }}</span>
                     <div
                     class="slide-img-background"
-                    :style="`background-image: url(${slide.bgrImage})`">
+                    :style="`background-image: url(${slide.bgr_image})`">
                         <div class="slide-title-box">
                             <h2
                             data-swiper-parallax-x="-350"
@@ -17,7 +17,7 @@
                             <a
                             :href="slide.href"
                             data-swiper-parallax-x="-650"
-                            data-swiper-parallax-opacity="0">{{ slide.buttonText }}</a>
+                            data-swiper-parallax-opacity="0">{{ slide.button_text }}</a>
                         </div>
                     </div>
                 </div>

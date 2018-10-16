@@ -49,16 +49,7 @@
                     <Product
                     v-for="product in productList"
                     :key="product.id"
-                    :type="product.type"
-                    :title="product.title"
-                    :subtitle="product.subtitle"
-                    :icon="product.icon"
-                    :badge="product.badge"
-                    :badgeDirection="product.badgeDirection"
-                    :oldPrice="product.oldPrice"
-                    :price="product.price"
-                    :productImage="product.productImage"
-                    :theme="product.theme"/>
+                    :data="product"/>
                 </ProductGrid>
                 <LoadMore v-if="products.pagination && !products.pagination.isLastPage" @click="getNextProductsPage" :isLoading="isLoading"/>
             </div>
