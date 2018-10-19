@@ -1,48 +1,13 @@
 <template>
     <section class="page home">
         <div class="home-header">
-            <Slider :slides="slides.data" type="0"/>
+            <Slider :slides="slides.data"/>
         </div>
         <div class="home-content">
             <div class="page-wrapper2">
                 <div class="benefits-container">
                     <div class="benefits">
-                        <div class="benefit">
-                            <div class="benefit-box">
-                                <i class="icob-truck"></i>
-                                <div class="benefit-desc">
-                                    <h6>Free Shipping</h6>
-                                    <span>Orders over $99</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <div class="benefit-box">
-                                <i class="icob-refresh-ccw"></i>
-                                <div class="benefit-desc">
-                                    <h6>30 days return</h6>
-                                    <span>If goods have problem</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <div class="benefit-box">
-                                <i class="icob-credit-card"></i>
-                                <div class="benefit-desc">
-                                    <h6>Secure payment</h6>
-                                    <span>100% secure payment</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <div class="benefit-box">
-                                <i class="icob-user"></i>
-                                <div class="benefit-desc">
-                                    <h6>24h support</h6>
-                                    <span>Dedicated Support</span>
-                                </div>
-                            </div>
-                        </div>
+                        <Benefit v-for="benefit in benefitsList" :key="benefit.id" :data="benefit"/>
                     </div>
                 </div>
                 <ProductGrid columns="4" :lastPage="products.pagination && products.pagination.isLastPage">
@@ -63,7 +28,8 @@ import Swiper from 'swiper';
 
 // components
 import { mapGetters, mapActions } from 'vuex';
-import Slider from '../components/slider';
+import Slider from '../components/header-slider';
+import Benefit from '../components/benefit-square';
 import ProductGrid from '../components/product-grid';
 import Product from '../components/product';
 import LoadMore from '../components/load-more';
@@ -72,6 +38,7 @@ export default {
     name: 'Home',
     components: {
         Slider,
+        Benefit,
         ProductGrid,
         Product,
         LoadMore
@@ -79,7 +46,33 @@ export default {
     data() {
         return {
             isLoading: false,
-            productList: []
+            productList: [],
+            benefitsList: [
+                {
+                    index: 0,
+                    icon: 'truck',
+                    descTitle: 'Free Shipping',
+                    descText: 'Orders over $99'
+                },
+                {
+                    index: 1,
+                    icon: 'refresh-ccw',
+                    descTitle: '30 days return',
+                    descText: 'If goods have problem'
+                },
+                {
+                    index: 2,
+                    icon: 'credit-card',
+                    descTitle: 'Secure payment',
+                    descText: '100% Secure payment'
+                },
+                {
+                    index: 3,
+                    icon: 'user',
+                    descTitle: '24h support',
+                    descText: 'Dedicated Support'
+                }
+            ]
         };
     },
     computed: {
@@ -89,7 +82,7 @@ export default {
         })
     },
     methods: {
-        ...mapActions(['getProducts', 'getSlides']),
+        ...mapActions(['getProducts', 'getHeaderSlides']),
         getNextProductsPage() {
             this.getProducts(this.products.pagination.links.next);
             this.isLoading = true;
@@ -108,7 +101,7 @@ export default {
             }
         });
         this.getProducts(`limit=12&offset=0`);
-        this.getSlides();
+        this.getHeaderSlides();
     },
     updated() {
         document.querySelector('.swiper-container').swiper.update();

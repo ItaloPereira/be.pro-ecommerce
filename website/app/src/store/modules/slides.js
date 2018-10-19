@@ -5,8 +5,8 @@ const defaultState = {
 };
 
 const actions = {
-    getSlides: context => {
-        SlidesService.getSlides()
+    getHeaderSlides: context => {
+        SlidesService.getHeaderSlides()
             .then(response => {
                 context.commit('SLIDES_UPDATE', response);
             })

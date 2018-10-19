@@ -2,7 +2,7 @@ const Model = require('../utils/model');
 
 class Slides extends Model {
     constructor() {
-        super('slides');
+        super('header_slides');
     }
 }
 

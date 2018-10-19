@@ -14,7 +14,7 @@ export default {
         calcColumn() {
             let result = '';
             for (let i = 0; i < this.columns; i += 1) {
-                result += 'auto ';
+                result += '1fr ';
             }
             return result;
         }
