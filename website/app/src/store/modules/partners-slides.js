@@ -1,14 +1,14 @@
 import { SlidesService } from '@/api';
 
 const defaultState = {
-    slides: []
+    partnersSlides: []
 };
 
 const actions = {
-    getHeaderSlides: context => {
-        SlidesService.getHeaderSlides()
+    getPartnersSlides: context => {
+        SlidesService.getPartnersSlides()
             .then(response => {
-                context.commit('SLIDES_UPDATE', response);
+                context.commit('PARTNERS_SLIDES_UPDATE', response);
             })
             .catch(error => {
                 // eslint-disable-next-line
@@ -18,13 +18,13 @@ const actions = {
 };
 
 const mutations = {
-    SLIDES_UPDATE: (state, payload) => {
-        state.slides = payload.data;
+    PARTNERS_SLIDES_UPDATE: (state, payload) => {
+        state.partnersSlides = payload.data;
     }
 };
 
 const getters = {
-    slides: state => state.slides
+    partnersSlides: state => state.partnersSlides
 };
 
 export default {

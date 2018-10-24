@@ -57,5 +57,8 @@ export const ProductsService = {
 export const SlidesService = {
     getHeaderSlides() {
         return ApiService.get('/headerslides');
+    },
+    getPartnersSlides() {
+        return ApiService.get('/partnersslides');
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <div class="swiper-container">
+    <div class="header-swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="slide in slides" :key="slide.id">
                 <span
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-navigation">
+        <div class="header-swiper-navigation">
             <div class="swiper-button-prev icob-arrow-left"></div>
             <div class="swiper-button-next icob-arrow-right"></div>
         </div>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-    name: 'Slider',
+    name: 'HeaderSlider',
     props: ['slides']
 };
 </script>

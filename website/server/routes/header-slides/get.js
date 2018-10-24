@@ -1,4 +1,4 @@
-const SlidesController = require(`../../controllers/slides`);
+const SlidesController = require(`../../controllers/header-slides`);
 
 module.exports = async (req, res) => {
 

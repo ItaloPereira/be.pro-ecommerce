@@ -4,7 +4,7 @@ const Database = {};
 
 Database.createPool = database => {
     Database.dbConnectionPool = mysql.createPool({
-        host: '10.10.4.51',
+        host: '10.10.4.36',
         user: 'root',
         database: 'bepro',
         password: 'root',

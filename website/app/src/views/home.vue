@@ -1,13 +1,21 @@
 <template>
     <section class="page home">
         <div class="home-header">
-            <Slider :slides="slides.data"/>
+            <Slider :slides="headerSlides.data"/>
         </div>
         <div class="home-content">
             <div class="page-wrapper2">
                 <div class="benefits-container">
                     <div class="benefits">
-                        <Benefit v-for="benefit in benefitsList" :key="benefit.id" :data="benefit"/>
+                        <div class="benefit" v-for="benefit in benefitsList" :key="benefit.id">
+                            <div class="benefit-box">
+                                <i :class="`icob-${benefit.icon}`"></i>
+                                <div class="benefit-desc">
+                                    <h6>{{ benefit.descTitle }}</h6>
+                                    <span>{{ benefit.descText }}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <ProductGrid columns="4" :lastPage="products.pagination && products.pagination.isLastPage">
@@ -29,7 +37,6 @@ import Swiper from 'swiper';
 // components
 import { mapGetters, mapActions } from 'vuex';
 import Slider from '../components/header-slider';
-import Benefit from '../components/benefit-square';
 import ProductGrid from '../components/product-grid';
 import Product from '../components/product';
 import LoadMore from '../components/load-more';
@@ -38,7 +45,6 @@ export default {
     name: 'Home',
     components: {
         Slider,
-        Benefit,
         ProductGrid,
         Product,
         LoadMore
@@ -77,8 +83,8 @@ export default {
     },
     computed: {
         ...mapGetters({
-            products: 'products',
-            slides: 'slides'
+            headerSlides: 'headerSlides',
+            products: 'products'
         })
     },
     methods: {
@@ -90,21 +96,21 @@ export default {
     },
     mounted() {
         // eslint-disable-next-line
-        const swiper = new Swiper('.swiper-container', {
+        const swiper = new Swiper('.header-swiper-container', {
             direction: 'horizontal',
             slidesPerView: 'auto',
             parallax: true,
             speed: 700,
             navigation: {
-                nextEl: '.swiper-navigation .swiper-button-next',
-                prevEl: '.swiper-navigation .swiper-button-prev'
+                nextEl: '.header-swiper-navigation .swiper-button-next',
+                prevEl: '.header-swiper-navigation .swiper-button-prev'
             }
         });
         this.getProducts(`limit=12&offset=0`);
         this.getHeaderSlides();
     },
     updated() {
-        document.querySelector('.swiper-container').swiper.update();
+        document.querySelector('.header-swiper-container').swiper.update();
     },
     watch: {
         products(list) {
