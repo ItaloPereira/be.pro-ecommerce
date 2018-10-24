@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
-# Host: 10.10.4.51 (MySQL 5.7.23)
+# Host: 10.10.4.36 (MySQL 5.7.23)
 # Database: bepro
-# Generation Time: 2018-10-19 20:28:40 +0000
+# Generation Time: 2018-10-24 17:48:37 +0000
 # ************************************************************
 
 
@@ -73,6 +73,36 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table partners_slides
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `partners_slides`;
+
+CREATE TABLE `partners_slides` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `partner_image` varchar(45) DEFAULT NULL,
+  `href` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `partners_slides` WRITE;
+/*!40000 ALTER TABLE `partners_slides` DISABLE KEYS */;
+
+INSERT INTO `partners_slides` (`id`, `partner_image`, `href`)
+VALUES
+	(1,'partner1.png',NULL),
+	(2,'partner2.png',NULL),
+	(3,'partner3.png',NULL),
+	(4,'partner4.png',NULL),
+	(5,'partner1.png',NULL),
+	(6,'partner2.png',NULL),
+	(7,'partner3.png',NULL),
+	(8,'partner4.png',NULL);
+
+/*!40000 ALTER TABLE `partners_slides` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table products
 # ------------------------------------------------------------
 
@@ -105,7 +135,7 @@ VALUES
 	(2,1,'second t-shirt',NULL,100.00,NULL,NULL,NULL,'tshirt-1.jpg','tshirt-1.jpg','2017-08-10 00:00:00','2017-08-05 00:00:00'),
 	(3,1,'ewifjifj',200.00,200.00,NULL,NULL,NULL,'tshirt-2.jpg','tshirt-2.jpg','2017-08-10 00:00:00','2017-08-20 00:00:00'),
 	(4,1,'ewifjifj',200.00,200.00,NULL,NULL,NULL,'tshirt-3.jpg','tshirt-3.jpg','2017-08-10 00:00:00','2017-08-22 00:00:00'),
-	(5,2,'first t-shirt',NULL,150.00,'andrew','left','color','pant-0.jpg','pant-0.jpg','2017-08-10 00:00:00','2017-08-10 00:00:00'),
+	(5,2,'first t-shirt',NULL,150.00,'jd','left','color','pant-0.jpg','pant-0.jpg','2017-08-10 00:00:00','2017-08-10 00:00:00'),
 	(6,2,'second t-shirt',NULL,100.00,NULL,NULL,NULL,'pant-1.jpg','pant-1.jpg','2017-08-10 00:00:00','2017-08-24 00:00:00'),
 	(7,2,'ewifjifj',200.00,200.00,NULL,NULL,NULL,'pant-2.jpg','pant-2.jpg','2017-08-10 00:00:00','2017-08-30 00:00:00'),
 	(8,2,'ewifjifj',200.00,200.00,NULL,NULL,NULL,'pant-3.jpg','pant-3.jpg','2017-08-10 00:00:00','2017-08-14 00:00:00'),
